@@ -2,4 +2,6 @@
 
 This is the readme for the front-end react portion of our project
 
-test
+James Macapagal
+Joe Putz
+Justin Hobbs
