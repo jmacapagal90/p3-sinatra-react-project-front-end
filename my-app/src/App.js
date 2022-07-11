@@ -1,39 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState, useEffect } from 'react';
+import { Switch, Route } from "react-router-dom";
+import { Header } from 'semantic-ui-react'
+import Animals from './component/Animals'
+import Habitats from './component/Habitats'
 
 function App() {
-  useEffect(() => {
-    fetch('http://localhost:9292/', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        }}
-    )
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch((error) => {
-    console.error('Error:', error);
-    });
-  }, [])
+  
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Header className="App-header">
+        <Animals />
+        <Habitats />
+      </Header>
   );
 }
 
