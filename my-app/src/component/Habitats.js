@@ -27,7 +27,7 @@ function Habitats(){
             {habitat && 
             habitat.map((habitat) => {
                 return (
-                    <Menu.Item  activeStyle={{color: "red"}} as='a'>
+                    <Menu.Item  activeStyle={{color: "orange"}} as='a'>
                         <Link key={habitat.id} to={`/habitat/${habitat.id}`}>
                             {habitat.name}
                         </Link>
