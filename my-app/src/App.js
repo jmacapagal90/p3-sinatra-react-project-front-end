@@ -1,19 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-import { Switch, Route } from "react-router-dom";
-import { Header } from 'semantic-ui-react'
-import Animals from './component/Animals'
+import { Switch, BrowserRouter as Router } from "react-router-dom";
+import {Header} from 'semantic-ui-react'
 import Habitats from './component/Habitats'
+//import Animals from './component/Animals'
 
 function App() {
   
 
   return (
-      <Header className="App-header">
-        <Animals />
-        <Habitats />
-      </Header>
-  );
+    <Header>
+      <Router>
+        <Switch>
+          <Habitats/>
+        </Switch>
+      </Router>
+    </Header>
+      );
 }
 
 export default App;

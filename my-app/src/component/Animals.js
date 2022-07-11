@@ -1,8 +1,11 @@
 import React from "react";
-import { Header } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
+import AnimalCard from './AnimalCard';
 
 function Animals(){
+    const [ animal, setAnimal ] = useState([]);
+
     useEffect(() => {
         fetch('http://localhost:9292/animals', {
             method: 'GET',
@@ -11,15 +14,23 @@ function Animals(){
             }}
         )
         .then(response => response.json())
-        .then(animals => console.log(animals))
+        .then(animal_data => setAnimal(animal_data))
         .catch((error) => {
         console.error('Error:', error);
         });
       }, [])
 
+
+
     return (
-     <Header>Animals</Header>
+        <Card.Group itemsPerRow={4}>
+            {animal && 
+            animal.map((animal) => {
+                return (
+                    <AnimalCard key={animal.id} name={animal.name}/>
+                )
+            })}
+        </Card.Group>
     )
 }
-
 export default Animals;
