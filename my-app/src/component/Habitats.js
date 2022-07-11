@@ -23,14 +23,14 @@ function Habitats(){
     //     console.log(e)
     //   }
     return (
-        <Menu pointing secondary vertical >
+        <Menu vertical compact size="massive">
             {habitat && 
             habitat.map((habitat) => {
                 return (
-                    <Menu.Item className="button" activeStyle={{color: "red"}}>
-                    <Link key={habitat.id} to={`/habitat/${habitat.id}`}>
-                        {habitat.name}
-                    </Link>
+                    <Menu.Item  activeStyle={{color: "red"}} as='a'>
+                        <Link key={habitat.id} to={`/habitat/${habitat.id}`}>
+                            {habitat.name}
+                        </Link>
                     </Menu.Item>
                 )
             })}
