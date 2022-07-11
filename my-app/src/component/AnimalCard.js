@@ -14,17 +14,15 @@ function AnimalCard ({ animal }){
 
     return (
         <Card>
-             <Card.Header>
-                {animal.name}
-              </Card.Header>
-              <img src={animal.image} />
-              <p>{animal.scientific_name}</p>
-              <p>Have You Seen This Animal?</p>
-              <p>{animal.sighting? "Yes" : "No" }</p>
-              <button onClick= {handleSighting}>Add Sighting</button>
-              <p>Is This Animal Extinct?</p>
-              <p>{animal.extinct? "They gone" : "Still around"}</p>
-              <button onClick= {handleExtinction}>Extinction Button</button>
+            <h4>{animal.name}</h4>
+            <img src={animal.image} />
+            <p>{animal.scientific_name}</p>
+            <p>Have You Seen This Animal?</p>
+            <p>{animal.sighting? "Yes" : "No" }</p>
+            <button onClick= {handleSighting}>Add Sighting</button>
+            <p>Is This Animal Extinct?</p>
+            <p>{animal.extinct? "They gone" : "Still around"}</p>
+            <button onClick= {handleExtinction}>Extinction Button</button>
         </Card>
     )
 }
