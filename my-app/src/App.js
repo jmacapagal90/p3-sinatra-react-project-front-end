@@ -1,7 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    fetch('http://localhost:9292/', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }}
+    )
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch((error) => {
+    console.error('Error:', error);
+    });
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
