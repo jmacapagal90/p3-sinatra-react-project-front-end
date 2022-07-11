@@ -16,3 +16,41 @@ code {
   text-align: left;
   display: flexbox;
 }
+
+.card {
+  text-align: center;
+  border: grey solid 1px;
+  padding: 1rem;
+  width: 18rem;
+  min-height: 30rem;
+  height: auto;
+  display: inline-grid;
+  margin: 1rem 1rem;
+  box-shadow: 3px 4px #e04b52;
+  background-color: #87CEEB;
+}
+
+.card button {
+  align-self: flex-end;
+}
+
+.card img {
+  max-height: 200px;
+  width: 170px;
+  overflow: hidden;
+  margin-left:auto;
+  margin-right:auto;
+
+}
+
+.card h4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+
+.card button {
+  max-height: 30px;
+  border-radius: 10px;
+}

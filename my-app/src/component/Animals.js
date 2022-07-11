@@ -27,7 +27,7 @@ function Animals(){
             {animal && 
             animal.map((animal) => {
                 return (
-                    <AnimalCard key={animal.id} name={animal.name}/>
+                    <AnimalCard key={animal.id} animal={animal}/>
                 )
             })}
         </Card.Group>
