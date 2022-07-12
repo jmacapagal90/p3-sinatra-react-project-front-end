@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from 'semantic-ui-react';
+import { Card, Container } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
 import AnimalCard from './AnimalCard';
 
@@ -23,6 +23,7 @@ function Animals(){
 
 
     return (
+        <Container>
         <Card.Group itemsPerRow={4}>
             {animal && 
             animal.map((animal) => {
@@ -31,6 +32,7 @@ function Animals(){
                 )
             })}
         </Card.Group>
+        </Container>
     )
 }
 export default Animals;
