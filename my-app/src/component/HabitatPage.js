@@ -1,17 +1,13 @@
 import React from "react";
-import AnimalCard from "./AnimalCard";
+import {useParams} from "react-router-dom"
 
-function HabitatPage({habitat,habitatID}){
+function HabitatPage({habitat}){
+    const params = useParams()
+    console.log(habitat)
 
     return (
         <>
-        <h1>{habitat[habitatID].name}</h1>
-        <h1>Animals in Habitat</h1>
-        {habitat[habitatID].sightings.map(animal => {
-            return (
-                <AnimalCard animal={animal.animal}/>
-            )})
-        }
+            <h1>test</h1>
         </>
     )
 }
