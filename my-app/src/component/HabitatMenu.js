@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink,Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import { Menu } from "semantic-ui-react";
+import { Menu, MenuItem } from "semantic-ui-react";
+import HabitatDetail from "./HabitatDetail";
 
 function HabitatMenu(){
     const [ habitat, setHabitats ] = useState([]);
@@ -27,11 +28,11 @@ function HabitatMenu(){
             {habitat && 
             habitat.map((habitat) => {
                 return (
-                    <Menu.Item as='a'>
-                        <Link key={habitat.id} to={`/habitat/${habitat.id}`}>
-                            {habitat.name}
-                        </Link>
-                    </Menu.Item>
+                        <MenuItem as="a">
+                            <NavLink key={habitat.id} to={`/habitat/${habitat.id}`}>
+                                {habitat.name}
+                            </NavLink>
+                        </MenuItem>
                 )
             })}
         </Menu>
