@@ -32,4 +32,4 @@ function AnimalCard ({ animal }){
 // t.boolean :extinct
 // t.string :scientific_name
 
-// export default AnimalCard;
+export default AnimalCard;

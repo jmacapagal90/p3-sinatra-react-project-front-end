@@ -1,6 +1,6 @@
 import { Switch, BrowserRouter as Router } from "react-router-dom";
 import {Header} from 'semantic-ui-react'
-import Habitats from './component/Habitats'
+import Home from './component/Home'
 //import Animals from './component/Animals'
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     <Header>
       <Router>
         <Switch>
-          <Habitats/>
+          <Home/>
         </Switch>
       </Router>
     </Header>

@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import { Menu } from "semantic-ui-react"
+import { Menu } from "semantic-ui-react";
 
-function Habitats(){
+function HabitatMenu(){
     const [ habitat, setHabitats ] = useState([]);
     useEffect(() => {
         fetch('http://localhost:9292/habitats', {
@@ -27,7 +27,7 @@ function Habitats(){
             {habitat && 
             habitat.map((habitat) => {
                 return (
-                    <Menu.Item  activeStyle={{color: "orange"}} as='a'>
+                    <Menu.Item as='a'>
                         <Link key={habitat.id} to={`/habitat/${habitat.id}`}>
                             {habitat.name}
                         </Link>
@@ -37,4 +37,4 @@ function Habitats(){
         </Menu>
     )
 }
-export default Habitats;
+export default HabitatMenu;
