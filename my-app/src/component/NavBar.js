@@ -3,7 +3,7 @@ import { NavLink,Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { Menu, MenuItem } from "semantic-ui-react";
 
-function HabitatMenu({habitats}){
+function NavBar({habitats}){
 
     return (
         <Menu vertical compact size="massive">
@@ -20,4 +20,4 @@ function HabitatMenu({habitats}){
         </Menu>
     )
 }
-export default HabitatMenu;
+export default NavBar;

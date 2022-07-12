@@ -1,17 +1,10 @@
 import React from "react";
-import HabitatPage from "./HabitatPage";
-import { Route, useRouteMatch } from 'react-router-dom'
 
-function HabitatShow({ habitats }){
-    const match = useRouteMatch()
-    console.log(match)
+function HabitatShow({habitat}){
+    console.log(habitat)
     return (
-        <Route path={`${match.url}/:id`}>
-            {habitats.map((habitat)=>{
-            return (
-                <HabitatPage habitat={habitat}/>
-            )})}
-        </Route>
-)}
+        <h1>Habitat Show Component</h1>
+    )
+}
 
 export default HabitatShow;
