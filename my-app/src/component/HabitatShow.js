@@ -1,9 +1,13 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
-function HabitatShow({habitat}){
-    console.log(habitat)
+function HabitatShow({habitats}){
+    const params = useParams()
+    console.log(params)
     return (
-        <h1>Habitat Show Component</h1>
+        <div>
+            <h3>{habitats[params].name}</h3>
+        </div>
     )
 }
 
