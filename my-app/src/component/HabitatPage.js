@@ -1,4 +1,5 @@
 import React from "react";
+import HabitatList from "./HabitatList"
 import HabitatShow from "./HabitatShow";
 import { Route, useRouteMatch } from 'react-router-dom'
 
@@ -6,12 +7,12 @@ function HabitatPage({ habitats }){
     const match = useRouteMatch()
     console.log(match)
     return (
-        <Route path={`${match.url}/:id`}>
-            {habitats.map((habitat)=>{
-            return (
-                <HabitatShow habitat={habitat}/>
-            )})}
+        <div>
+        <HabitatList habitats={habitats} />
+        <Route path={`habitat/:habitatId`}>
+            <HabitatShow habitats={habitats}/>
         </Route>
+        </div>
 )}
 
 export default HabitatPage;
