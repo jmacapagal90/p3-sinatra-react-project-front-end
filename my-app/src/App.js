@@ -2,13 +2,12 @@ import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 import {Header} from 'semantic-ui-react'
 import HomeHeader from './component/HomeHeader'
 import HabitatMenu from "./component/HabitatMenu";
-import HabitatPage from "./component/HabitatPage";
+import HabitatShow from "./component/HabitatShow";
 import {useState,useEffect} from 'react';
 //import Animals from './component/Animals'
 
 function App() {
-  const [ habitat, setHabitats ] = useState([]);
-  const [ habitatID, setHabitatID] = useState(0);
+  const [ habitats, setHabitats ] = useState([]);
 
   useEffect(() => {
       fetch('http://localhost:9292/habitats', {
@@ -24,10 +23,6 @@ function App() {
       });
     }, [])
   
-  function handleHabitatID(id){
-    setHabitatID(id)
-  }
-  
   return (
     <>
     <Header>
@@ -36,10 +31,10 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">          
-            <HabitatMenu habitat={habitat} handleHabitatID={handleHabitatID}/>
+            <HabitatMenu habitats={habitats} />
           </Route>
-          <Route path="/habitat">
-            <HabitatPage habitat={habitat} habitatID={habitatID}/>
+          <Route path="/habitat/:id">
+            <HabitatShow habitats={habitats} />
           </Route>
         </Switch>
       </Router>

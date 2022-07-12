@@ -2,16 +2,19 @@ import React from "react";
 import { NavLink,Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { Menu, MenuItem } from "semantic-ui-react";
-import HabitatLink from "./HabitatLink";
 
-function HabitatMenu({habitat,handleHabitatID}){
+function HabitatMenu({habitats}){
 
     return (
         <Menu vertical compact size="massive">
-            {habitat && 
-            habitat.map((habitat) => {
+            {habitats && 
+            habitats.map((habitat) => {
                 return (
-                    <HabitatLink key={habitat.id} id={habitat.id} name={habitat.name} handleHabitatID={handleHabitatID}/>
+                    <MenuItem as="a">
+                        <NavLink to={`/habitat/${habitat.id}`} >
+                            {habitat.name}
+                        </NavLink>
+                    </MenuItem>
                 )
             })}
         </Menu>
