@@ -2,7 +2,7 @@ import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 import {Header} from 'semantic-ui-react'
 import HomeHeader from './component/HomeHeader'
 import HabitatMenu from "./component/HabitatMenu";
-import HabitatDetail from "./component/HabitatLink";
+import HabitatPage from "./component/HabitatPage";
 import {useState,useEffect} from 'react';
 //import Animals from './component/Animals'
 
@@ -39,7 +39,7 @@ function App() {
             <HabitatMenu habitat={habitat} handleHabitatID={handleHabitatID}/>
           </Route>
           <Route path="/habitat">
-            {/* <HabitatDetail habitat={habitat}/> */}
+            <HabitatPage habitat={habitat} habitatID={habitatID}/>
           </Route>
         </Switch>
       </Router>
