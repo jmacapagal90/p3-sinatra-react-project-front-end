@@ -1,8 +1,7 @@
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
-import {Header} from 'semantic-ui-react'
-import HomeHeader from './component/HomeHeader'
-import HabitatMenu from "./component/HabitatMenu";
-import HabitatShow from "./component/HabitatShow";
+import Title from './component/Title'
+import NavBar from "./component/NavBar";
+import HabitatPage from "./component/HabitatPage";
 import {useState,useEffect} from 'react';
 //import Animals from './component/Animals'
 
@@ -25,16 +24,12 @@ function App() {
   
   return (
     <>
-    <Header>
-        <HomeHeader />
-    </Header>
+      <Title />
+      <NavBar habitats={habitats} />
       <Router>
         <Switch>
-          <Route exact path="/">          
-            <HabitatMenu habitats={habitats} />
-          </Route>
           <Route path="/habitat/:id">
-            <HabitatShow habitats={habitats} />
+            <HabitatPage habitats={habitats} />
           </Route>
         </Switch>
       </Router>
