@@ -1,37 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink,Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import { Menu } from "semantic-ui-react";
+import { Menu, MenuItem } from "semantic-ui-react";
+import HabitatLink from "./HabitatLink";
 
-function HabitatMenu(){
-    const [ habitat, setHabitats ] = useState([]);
-    useEffect(() => {
-        fetch('http://localhost:9292/habitats', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            }}
-        )
-        .then(response => response.json())
-        .then(habitat_data => setHabitats(habitat_data))
-        .catch((error) => {
-        console.error('Error:', error);
-        });
-      }, [])
+function HabitatMenu({habitat,handleHabitatID}){
 
-    //   function handleClick(e){
-    //     console.log(e)
-    //   }
     return (
         <Menu vertical compact size="massive">
             {habitat && 
             habitat.map((habitat) => {
                 return (
-                    <Menu.Item as='a'>
-                        <Link key={habitat.id} to={`/habitat/${habitat.id}`}>
-                            {habitat.name}
-                        </Link>
-                    </Menu.Item>
+                    <HabitatLink key={habitat.id} id={habitat.id} name={habitat.name} handleHabitatID={handleHabitatID}/>
                 )
             })}
         </Menu>
