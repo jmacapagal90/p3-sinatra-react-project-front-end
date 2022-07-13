@@ -41,7 +41,7 @@ function App() {
           <Animals  />
       </Route>
       <Route path={`/habitats/:id`}>
-          <HabitatShow />
+          <HabitatShow habitats={habitats}/>
       </Route>
       </Switch>
     </>
