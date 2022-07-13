@@ -9,9 +9,6 @@ function HabitatPage({ habitats }){
     return (
         <div>
             <HabitatList habitats={habitats} /> 
-            <Route path={`${path}/:habitat.id`}>
-                <HabitatShow />
-            </Route>
         </div>
 )}
 

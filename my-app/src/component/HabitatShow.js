@@ -1,10 +1,12 @@
 import React from "react";
 import { useParams,useRouteMatch } from "react-router-dom";
 
-function HabitatShow(){
+function HabitatShow({habitats}){
     const { params } = useParams()
     const { url, path } = useRouteMatch()
-    console.log(params)
+    console.log("params:", params)
+    console.log("url:", url)
+    console.log("path:", path)
 
     return (
         <div>
