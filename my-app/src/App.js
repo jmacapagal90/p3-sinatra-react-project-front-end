@@ -58,7 +58,7 @@ function App() {
         <Home animal={homeAnimals}/>
       </Route>
       <Route exact path="/habitats">
-          <HabitatPage habitats={habitats} animals={animals}/> 
+          <HabitatPage habitats={habitats} animals={animals} onHandleNewHabitat={handleNewHabitat} /> 
       </Route>
       <Route exact path="/animals">
           <Animals  />

@@ -4,12 +4,7 @@ import HabitatShow from "./HabitatShow";
 import { Route, useRouteMatch } from "react-router-dom";
 import { Form, Button, Input, Label,Container } from "semantic-ui-react"
 
-<<<<<<< HEAD
-function HabitatPage({ habitats, animals }){
-=======
-function HabitatPage({ habitats,onHandleNewHabitat }){
-    const [habitatName,setHabitatName] = useState("")
->>>>>>> james-habitat-form
+function HabitatPage({ habitats, animals,onHandleNewHabitat }){
     const match = useRouteMatch()
     
     function submitNewHabitat(e){
