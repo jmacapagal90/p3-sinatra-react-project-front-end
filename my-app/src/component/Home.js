@@ -6,12 +6,23 @@ import AnimalCardTwo from "./AnimalCardTwo";
 function Home( {animal}){
     return (
         <Container>
-        <Header class="ui sizer vertical segment">
-            <h1 class="ui huge header ">Welcome to the Zoo!</h1>
-            <h2 class="ui small header">Select a Habitat and See What Animals You Can Spot!</h2>        
+        <Header textAlign="center" class="ui sizer vertical segment">
+            <Header class="ui huge header ">Welcome to the Zoo!</Header>
+            <Header class="ui small">Select a Habitat to View All The Animals</Header>      
+            <Header class="ui small">Or View the Animals and see their Habitats</Header>     
         </Header>
-        <Link to="/animals">animals</Link>
-        <Link to="/habitats">habitats</Link>
+        <div  class="ui two column divided grid">
+            <div textAlign="center" class="column">
+                <h1 class="medium">
+                <Link to="/animals">Animals</Link>
+                </h1>
+            </div>
+            <div textAlign="center" class="column">
+                <h1 class="medium">
+                <Link to="/habitats">Habitats</Link>
+                </h1>
+            </div>
+        </div>
         <AnimalCardTwo 
         animal={animal}
         />

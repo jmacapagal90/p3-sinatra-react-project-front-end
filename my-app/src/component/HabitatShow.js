@@ -7,7 +7,6 @@ import SightForm from "./SightForm";
 function HabitatShow({habitats, animals}){
     const [habitatData,setHabitatData] = useState([])
     const { id }  = useParams()
-    console.log("params:", id)
 
 
   useEffect(() => {
