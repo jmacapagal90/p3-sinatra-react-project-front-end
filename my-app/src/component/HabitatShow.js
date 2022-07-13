@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams,useRouteMatch } from "react-router-dom";
+import AnimalCard from "./AnimalCard";
 
 function HabitatShow({habitats}){
     const { params } = useParams()
@@ -10,7 +11,7 @@ function HabitatShow({habitats}){
 
     return (
         <div>
-            <h3>test</h3>
+            <AnimalCard />
         </div>
     )
 }
