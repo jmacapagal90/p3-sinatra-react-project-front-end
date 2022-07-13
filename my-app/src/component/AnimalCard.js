@@ -9,8 +9,12 @@ function AnimalCard ({ animal }){
     }
 
     function handleExtinction() {
-        console.log("change animal.extinct = true")
-    }
+        fetch(`http://localhost:9292//animal/${animal.id}`, {
+          method: "Delete",
+        })
+          .then((response) => response.json())
+          .then((data) => console.log(data));
+      }
 
     return (
         <Card>
