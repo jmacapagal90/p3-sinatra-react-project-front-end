@@ -1,6 +1,8 @@
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
+import { Header } from 'semantic-ui-react'
 import NavBar from './component/NavBar'
 import HabitatPage from "./component/HabitatPage";
+import HabitatShow from "./component/HabitatShow";
 import Animals from "./component/Animals";
 import {useState,useEffect} from 'react';
 import Home from './component/Home';
@@ -25,8 +27,9 @@ function App() {
   
   return (
     <>
-    <NavBar />
-    <Router>
+      <Header className="App-header" >
+        <NavBar/>
+      </Header>
       <Switch>
       <Route exact path="/home">
         <Home />
@@ -37,8 +40,10 @@ function App() {
       <Route exact path="/animals">
           <Animals  />
       </Route>
+      <Route path={`/habitats/:id`}>
+          <HabitatShow />
+      </Route>
       </Switch>
-    </Router>
     </>
       );
 }

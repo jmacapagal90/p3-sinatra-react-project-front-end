@@ -5,7 +5,7 @@ function HabitatShow(){
     const { params } = useParams()
     const { url, path } = useRouteMatch()
     console.log(params)
-
+    console.log("hey")
     return (
         <div>
             <h3>test</h3>
