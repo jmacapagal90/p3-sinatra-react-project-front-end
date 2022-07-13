@@ -1,4 +1,4 @@
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route,Redirect } from "react-router-dom";
 import { Header } from 'semantic-ui-react'
 import NavBar from './component/NavBar'
 import HabitatPage from "./component/HabitatPage";
@@ -43,24 +43,28 @@ function App() {
     }, [])
 
     const homeAnimals = animals[animals.length-1]
-  
+
+    function handleNewHabitat(newHabitatObj){
+      setHabitats([...habitats,newHabitatObj])
+    }
+
   return (
     <>
       <Header className="App-header" >
         <NavBar/>
       </Header>
       <Switch>
-      <Route exact path="/home">
+      <Route exact path="/">
         <Home animal={homeAnimals}/>
       </Route>
       <Route exact path="/habitats">
-          <HabitatPage habitats={habitats} />
+          <HabitatPage habitats={habitats} onHandleNewHabitat={handleNewHabitat}/>
       </Route>
       <Route exact path="/animals">
           <Animals  />
       </Route>
       <Route exact path={`/habitats/:id`}>
-          <HabitatShow habitats={habitats}/>
+          <HabitatShow />
       </Route>
       </Switch>
     </>

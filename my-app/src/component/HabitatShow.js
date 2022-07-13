@@ -3,10 +3,9 @@ import { useParams } from "react-router-dom";
 import { useEffect,useState } from "react";
 import AnimalCard from "./AnimalCard";
 
-function HabitatShow({habitats}){
+function HabitatShow(){
     const [habitatData,setHabitatData] = useState([])
     const { id }  = useParams()
-    console.log("params:", id)
 
 
   useEffect(() => {
