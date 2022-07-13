@@ -1,7 +1,7 @@
 import React from "react";
 import { Header, Container } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
-import AnimalCard from "./AnimalCard";
+import AnimalCardTwo from "./AnimalCardTwo";
 
 function Home( {animal}){
     return (
@@ -12,7 +12,7 @@ function Home( {animal}){
         </Header>
         <Link to="/animals">animals</Link>
         <Link to="/habitats">habitats</Link>
-        <AnimalCard 
+        <AnimalCardTwo 
         animal={animal}
         />
         </Container>

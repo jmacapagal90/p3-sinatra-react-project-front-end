@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Container } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
-import AnimalCard from './AnimalCard';
+import AnimalCardTwo from './AnimalCardTwo';
 
 function Animals(){
     const [ animal, setAnimal ] = useState([]);
@@ -28,7 +28,7 @@ function Animals(){
             {animal && 
             animal.map((animal) => {
                 return (
-                    <AnimalCard key={animal.id} animal={animal}/>
+                    <AnimalCardTwo key={animal.id} animal={animal}/>
                 )
             })}
         </Card.Group>
