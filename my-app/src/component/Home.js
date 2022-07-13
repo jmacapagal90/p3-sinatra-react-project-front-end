@@ -14,12 +14,12 @@ function Home( {animal}){
         <div  class="ui two column divided grid">
             <div textAlign="center" class="column">
                 <h1 class="medium">
-                <Link to="/animals">animals</Link>
+                <Link to="/animals">Animals</Link>
                 </h1>
             </div>
             <div textAlign="center" class="column">
                 <h1 class="medium">
-                <Link to="/habitats">habitats</Link>
+                <Link to="/habitats">Habitats</Link>
                 </h1>
             </div>
         </div>
