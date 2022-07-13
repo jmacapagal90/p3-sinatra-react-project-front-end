@@ -54,13 +54,13 @@ function App() {
         <Home animal={homeAnimals}/>
       </Route>
       <Route exact path="/habitats">
-          <HabitatPage habitats={habitats} />
+          <HabitatPage habitats={habitats} animals={animals}/>
       </Route>
       <Route exact path="/animals">
           <Animals  />
       </Route>
       <Route exact path={`/habitats/:id`}>
-          <HabitatShow habitats={habitats}/>
+          <HabitatShow habitats={habitats} animals={animals}/>
       </Route>
       </Switch>
     </>

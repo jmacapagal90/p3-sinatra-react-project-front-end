@@ -2,8 +2,9 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useEffect,useState } from "react";
 import AnimalCard from "./AnimalCard";
+import SightForm from "./SightForm";
 
-function HabitatShow({habitats}){
+function HabitatShow({habitats, animals}){
     const [habitatData,setHabitatData] = useState([])
     const { id }  = useParams()
     console.log("params:", id)
@@ -30,10 +31,13 @@ function HabitatShow({habitats}){
      })
 
     return (
+        <>
+        <SightForm habitat = {habitatData} animals = {animals}/>
         <div>
             <h1>{habitatData.name}</h1>
             {renderAnimalCard}
         </div>
+        </>
     )
 }
 
