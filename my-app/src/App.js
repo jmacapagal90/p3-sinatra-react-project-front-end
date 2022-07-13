@@ -10,6 +10,8 @@ import Home from './component/Home';
 
 function App() {
   const [ habitats, setHabitats ] = useState([]);
+  const [ animals, setAnimals ] = useState([]);
+  
 
   useEffect(() => {
       fetch('http://localhost:9292/habitats', {
@@ -24,6 +26,22 @@ function App() {
       console.error('Error:', error);
       });
     }, [])
+
+    useEffect(() => {
+      fetch('http://localhost:9292/animals', {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json',
+          }}
+      )
+      .then(response => response.json())
+      .then(animal_data => setAnimals(animal_data))
+      .catch((error) => {
+      console.error('Error:', error);
+      });
+    }, [])
+
+    const homeAnimals = animals[animals.length-1]
   
   return (
     <>
@@ -32,7 +50,7 @@ function App() {
       </Header>
       <Switch>
       <Route exact path="/home">
-        <Home />
+        <Home animal={homeAnimals}/>
       </Route>
       <Route exact path="/habitats">
           <HabitatPage habitats={habitats} />

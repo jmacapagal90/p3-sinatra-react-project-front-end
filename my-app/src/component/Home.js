@@ -1,8 +1,9 @@
 import React from "react";
 import { Header, Container } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
+import AnimalCard from "./AnimalCard";
 
-function Home(){
+function Home( {animal}){
     return (
         <Container>
         <Header class="ui sizer vertical segment">
@@ -11,6 +12,10 @@ function Home(){
         </Header>
         <Link to="/animals">animals</Link>
         <Link to="/habitats">habitats</Link>
+        <AnimalCard 
+        animal={animal}
+        />
+        console.log(animal)
         </Container>
     )
 }
