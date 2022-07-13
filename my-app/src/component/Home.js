@@ -15,7 +15,6 @@ function Home( {animal}){
         <AnimalCard 
         animal={animal}
         />
-        console.log(animal)
         </Container>
     )
 }

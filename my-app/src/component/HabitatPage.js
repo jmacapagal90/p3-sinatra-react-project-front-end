@@ -1,14 +1,17 @@
 import React from "react";
-import HabitatList from "./HabitatList"
+import HabitatList from "./HabitatList";
 import HabitatShow from "./HabitatShow";
-import { Route, useRouteMatch } from 'react-router-dom'
+import { Route, useRouteMatch } from "react-router-dom";
 
 function HabitatPage({ habitats }){
-    const { path } = useRouteMatch()
-    console.log(path)
+    const match = useRouteMatch()
+    console.log(match)
     return (
         <div>
             <HabitatList habitats={habitats} /> 
+            <Route path={`${match.url}/:id`}>
+                <HabitatShow habitats={habitats}/>
+            </Route>
         </div>
 )}
 
