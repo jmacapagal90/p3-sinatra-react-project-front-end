@@ -1,17 +1,38 @@
 import React from "react";
-import { useParams,useRouteMatch } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useEffect,useState } from "react";
 import AnimalCard from "./AnimalCard";
 
 function HabitatShow({habitats}){
-    const { params } = useParams()
-    const { url, path } = useRouteMatch()
-    console.log("params:", params)
-    console.log("url:", url)
-    console.log("path:", path)
+    const [habitatData,setHabitatData] = useState([])
+    const { id }  = useParams()
+    console.log("params:", id)
+
+
+  useEffect(() => {
+    fetch(`http://localhost:9292/habitats/${id}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }}
+    )
+    .then(response => response.json())
+    .then(habitat => setHabitatData(habitat))
+    .catch((error) => {
+    console.error('Error:', error);
+    });
+  }, [])
+
+  const renderAnimalCard = habitatData.sightings.map((animal)=> {
+    return (
+        <AnimalCard habitat={habitatData} key={animal.animal} animal={animal.animal}/>
+        )
+     })
 
     return (
         <div>
-            <AnimalCard />
+            <h1>{habitatData.name}</h1>
+            {renderAnimalCard}
         </div>
     )
 }

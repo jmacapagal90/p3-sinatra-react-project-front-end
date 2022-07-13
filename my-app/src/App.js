@@ -1,4 +1,4 @@
-import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { Header } from 'semantic-ui-react'
 import NavBar from './component/NavBar'
 import HabitatPage from "./component/HabitatPage";
@@ -11,7 +11,8 @@ import Home from './component/Home';
 function App() {
   const [ habitats, setHabitats ] = useState([]);
   const [ animals, setAnimals ] = useState([]);
-  
+  // const { match,path } = useRouteMatch()
+  // console.log(match)
 
   useEffect(() => {
       fetch('http://localhost:9292/habitats', {
@@ -58,7 +59,7 @@ function App() {
       <Route exact path="/animals">
           <Animals  />
       </Route>
-      <Route path={`/habitats/:id`}>
+      <Route exact path={`/habitats/:id`}>
           <HabitatShow habitats={habitats}/>
       </Route>
       </Switch>
