@@ -6,7 +6,7 @@ import { Form, Button, Input, Label,Container } from "semantic-ui-react"
 
 function HabitatPage({ habitats, animals,onHandleNewHabitat }){
     const match = useRouteMatch()
-    
+    const [habitatName,setHabitatName] = useState("")
     function submitNewHabitat(e){
         e.preventDefault();
         alert("Thanks for adding a new habitat!")
