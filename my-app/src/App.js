@@ -1,7 +1,9 @@
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
-import Title from './component/Title'
+import NavBar from './component/NavBar'
 import HabitatPage from "./component/HabitatPage";
+import Animals from "./component/Animals";
 import {useState,useEffect} from 'react';
+import Home from './component/Home';
 //import Animals from './component/Animals'
 
 function App() {
@@ -23,14 +25,20 @@ function App() {
   
   return (
     <>
-      <Title />
-      <Router>
-        <Switch>
-          <Route exact path="/habitat">
-            <HabitatPage habitats={habitats} />
-          </Route>
-        </Switch>
-      </Router>
+    <NavBar />
+    <Router>
+      <Switch>
+      <Route exact path="/home">
+        <Home />
+      </Route>
+      <Route exact path="/habitats">
+          <HabitatPage habitats={habitats} />
+      </Route>
+      <Route exact path="/animals">
+          <Animals  />
+      </Route>
+      </Switch>
+    </Router>
     </>
       );
 }
