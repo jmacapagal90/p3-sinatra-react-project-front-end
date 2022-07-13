@@ -23,7 +23,7 @@ function HabitatShow({habitats}){
     });
   }, [])
 
-  const renderAnimalCard = habitatData.sightings.map((animal)=> {
+  const renderAnimalCard = habitatData.sightings && habitatData.sightings.map((animal)=> {
     return (
         <AnimalCard habitat={habitatData} key={animal.animal} animal={animal.animal}/>
         )
