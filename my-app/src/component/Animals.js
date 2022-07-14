@@ -10,6 +10,8 @@ function Animals(){
     const newAnimalObj = {
         name: animalName,
         image: animalImage,
+        sighted: false,
+        extinct: false
     }
 
     useEffect(() => {
