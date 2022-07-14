@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "semantic-ui-react";
 
-function AnimalCardTwo ({ animal }){
+function AnimalCardTwo ({ animal,onExtinction }){
     console.log(animal)
 
     function onlyUnique(value, index, self) {
@@ -22,7 +22,7 @@ function AnimalCardTwo ({ animal }){
           method: "Delete",
         })
           .then((response) => response.json())
-          .then((data) => console.log(data));
+          .then((data) => onExtinction());
       }
 
 

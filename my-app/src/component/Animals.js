@@ -5,6 +5,7 @@ import AnimalCardTwo from './AnimalCardTwo';
 
 function Animals(){
     const [ animal, setAnimal ] = useState([]);
+    const [ refreshAnimals, setRefreshAnimals ] = useState(false)
     const [ animalName, setAnimalName ] = useState("");
     const [ animalImage, setAnimalImage ] = useState("");
     const newAnimalObj = {
@@ -44,7 +45,9 @@ function Animals(){
               setAnimalImage("")
            })
      }
-  
+     function onExtinction(){
+        setRefreshAnimals(!refreshAnimals)
+     }
 
 
 
@@ -65,7 +68,7 @@ function Animals(){
             {animal && 
             animal.map((animal) => {
                 return (
-                    <AnimalCardTwo key={animal.id} animal={animal}/>
+                    <AnimalCardTwo onExtinction={onExtinction} key={animal.id} animal={animal}/>
                 )
             })}
         </Card.Group>
