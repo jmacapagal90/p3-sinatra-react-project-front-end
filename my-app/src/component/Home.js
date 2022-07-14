@@ -14,7 +14,7 @@ function Home( {animal}){
             <h3 class="ui small">Or View the Animals and see their Habitats</h3>     
         </Header>
         <Container>
-            <div  class="ui two column divided grid">
+            <div  class="ui two column grid">
                 <div textAlign="center" class="column">
                     <h2 class="medium">
                         <Link to="/animals">Animals</Link>
@@ -27,13 +27,17 @@ function Home( {animal}){
                 </div>
             </div>
         </Container>
+        <br></br>
+        <br></br>
         <div textAlign="center">
         <Header>View Our Newest Addition!</Header>
-            <Card class="ui centered card">
-                <Header>Animal Name: {animal.name}</Header>
-                <Header>Scientific Name: {animal.scientific_name}</Header>
-                <Image src={animal.image}></Image>
-            </Card>
+            <div className="flexbox-container" >
+                <Card class="ui centered card">
+                    <Header>Animal Name: {animal.name}</Header>
+                    <Header>Scientific Name: {animal.scientific_name}</Header>
+                    <Image src={animal.image}></Image>
+                </Card>
+            </div>
         </div>
         </Container>
     )
