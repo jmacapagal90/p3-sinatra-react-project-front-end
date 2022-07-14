@@ -5,27 +5,29 @@ import AnimalCardTwo from "./AnimalCardTwo";
 
 function Home( {animal}){
     return (
-        <Container>
-        <Header textAlign="center" class="ui sizer vertical segment">
-            <Header class="ui huge header ">Welcome to the Zoo!</Header>
-            <Header class="ui small">Select a Habitat to View All The Animals</Header>      
-            <Header class="ui small">Or View the Animals and see their Habitats</Header>     
+        <Container textAlign="center">
+        <Header class="ui sizer vertical segment">
+            <h1 class="ui huge header ">Welcome to the Zoo!</h1>
+            <h3 class="ui small">Select a Habitat to View All The Animals</h3>      
+            <h3 class="ui small">Or View the Animals and see their Habitats</h3>     
         </Header>
-        <div  class="ui two column divided grid">
-            <div textAlign="center" class="column">
-                <h1 class="medium">
-                <Link to="/animals">Animals</Link>
-                </h1>
+        <Container>
+            <div  class="ui two column divided grid">
+                <div textAlign="center" class="column">
+                    <h2 class="medium">
+                        <Link to="/animals">Animals</Link>
+                    </h2>
+                </div>
+                <div textAlign="center" class="column">
+                    <h2 class="medium">
+                        <Link to="/habitats">Habitats</Link>
+                    </h2>
+                </div>
             </div>
-            <div textAlign="center" class="column">
-                <h1 class="medium">
-                <Link to="/habitats">Habitats</Link>
-                </h1>
-            </div>
+        </Container>
+        <div textAlign="center">
+            <AnimalCardTwo id="recentAnimal" animal={animal}/>
         </div>
-        <AnimalCardTwo 
-        animal={animal}
-        />
         </Container>
     )
 }
