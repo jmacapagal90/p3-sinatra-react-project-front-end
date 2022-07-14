@@ -9,6 +9,7 @@ import Home from './component/Home';
 //import Animals from './component/Animals'
 
 function App() {
+  const [ refresh, setRefresh ] = useState(false)
   const [ habitats, setHabitats ] = useState([]);
   const [ animals, setAnimals ] = useState([]);
   // const { match,path } = useRouteMatch()
@@ -26,7 +27,7 @@ function App() {
       .catch((error) => {
       console.error('Error:', error);
       });
-    }, [])
+    }, [refresh])
 
     useEffect(() => {
       fetch('http://localhost:9292/animals', {
@@ -40,12 +41,15 @@ function App() {
       .catch((error) => {
       console.error('Error:', error);
       });
-    }, [])
+    }, [refresh])
 
     const homeAnimals = animals[animals.length-1]
 
     function handleNewHabitat(newHabitatObj){
       setHabitats([...habitats,newHabitatObj])
+    }
+    function onRefresh(){
+      setRefresh(!refresh)
     }
 
   return (
@@ -58,7 +62,7 @@ function App() {
         <Home animal={homeAnimals}/>
       </Route>
       <Route exact path="/habitats">
-          <HabitatPage habitats={habitats} animals={animals} onHandleNewHabitat={handleNewHabitat} /> 
+          <HabitatPage setRefresh={onRefresh} habitats={habitats} animals={animals} onHandleNewHabitat={handleNewHabitat} /> 
       </Route>
       <Route exact path="/animals">
           <Animals  />

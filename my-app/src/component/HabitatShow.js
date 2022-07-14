@@ -4,7 +4,8 @@ import { useEffect,useState } from "react";
 import AnimalCard from "./AnimalCard";
 import SightForm from "./SightForm";
 
-function HabitatShow({habitats, animals}){
+function HabitatShow({habitats, animals,setRefresh}){
+    const [ refreshHabitat, setRefreshHabitat ] = useState(false)
     const [habitatData,setHabitatData] = useState([])
     const { id }  = useParams()
 
@@ -21,11 +22,15 @@ function HabitatShow({habitats, animals}){
     .catch((error) => {
     console.error('Error:', error);
     });
-  }, [])
+  }, [refreshHabitat])
+
+  function onRefreshHabitat(){
+    setRefreshHabitat(!refreshHabitat)
+  }
 
   const renderAnimalCard = habitatData.sightings && habitatData.sightings.map((animal)=> {
     return (
-        <AnimalCard habitat={habitatData} key={animal.animal} animal={animal.animal}/>
+        <AnimalCard setRefreshHabitat={onRefreshHabitat} setRefresh={setRefresh} habitat={habitatData} key={animal.animal} animal={animal.animal}/>
         )
      })
 

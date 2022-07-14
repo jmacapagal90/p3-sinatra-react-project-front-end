@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "semantic-ui-react";
 
-function AnimalCard ({ animal, habitat }){
+function AnimalCard ({ animal, habitat,setRefresh,setRefreshHabitat }){
     console.log(animal)
     function handleSighting() { 
         const sightingData = {
@@ -20,6 +20,8 @@ function AnimalCard ({ animal, habitat }){
               })
                 .then((response) => response.json())
                 .then((json) => {
+                    setRefresh()
+                    setRefreshHabitat()
                     console.log(json)
                     console.log("also, turn Sighted of the animal to true")})
             
@@ -41,7 +43,7 @@ function AnimalCard ({ animal, habitat }){
           method: "Delete",
         })
           .then((response) => response.json())
-          .then((data) => console.log(data));
+          .then((data) => setRefreshHabitat(data));
       }
 
     return (
