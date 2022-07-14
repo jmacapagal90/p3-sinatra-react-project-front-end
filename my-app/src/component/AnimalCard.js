@@ -2,8 +2,8 @@ import React from "react";
 import { Card } from "semantic-ui-react";
 
 function AnimalCard ({ animal, habitat }){
-
-    function handleSighting() {
+    console.log(animal)
+    function handleSighting() { 
         const sightingData = {
             animal_id: animal.id,
             habitat_id: habitat.id,
@@ -56,6 +56,7 @@ function AnimalCard ({ animal, habitat }){
             <p>{animal.extinct ? "They gone" : "Still around"}</p>
             <button onClick= {handleExtinction}>Extinction Button</button>
         </Card>
+
     )
 }
 
