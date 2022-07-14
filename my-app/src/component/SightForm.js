@@ -14,11 +14,12 @@ function SightForm( {habitat, animals} ) {
 
 
     function handleSubmitSight(e) {
+        const animalId = animals.find(animal => animal.name == animalName).id
         e.preventDefault();
         alert("Nice catch! Thanks for contributing to animal conservation!")
         const sightingData = {
             habitat_id: habitat.id,
-            animal_id: animals.find(animal => animal.name == animalName).id,
+            animal_id: animalId,
             seen: Date()
         }
 
@@ -31,6 +32,20 @@ function SightForm( {habitat, animals} ) {
         })
             .then((r) => r.json())
             .then((newSighting) => console.log(newSighting));
+
+            fetch(`http://localhost:9292/animal/${animalId}`, {
+                method: 'PATCH',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  sighted: true,
+                }),
+              })
+                .then((response) => response.json())
+                .then((json) => {
+                    console.log(json)
+                    console.log("also, turn Sighted of the animal to true")})
         }
         
 
