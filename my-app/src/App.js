@@ -15,7 +15,7 @@ function App() {
   // const { match,path } = useRouteMatch()
   // console.log(match)
 
-  useEffect(() => {
+    useEffect(() => {
       fetch('http://localhost:9292/habitats', {
           method: 'GET',
           headers: {
