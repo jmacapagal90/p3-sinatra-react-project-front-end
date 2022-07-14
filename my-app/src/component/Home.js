@@ -1,9 +1,11 @@
 import React from "react";
-import { Header, Container } from "semantic-ui-react";
+import { Header, Container,Card,Image } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
 import AnimalCardTwo from "./AnimalCardTwo";
 
 function Home( {animal}){
+
+    
     return (
         <Container textAlign="center">
         <Header class="ui sizer vertical segment">
@@ -26,7 +28,12 @@ function Home( {animal}){
             </div>
         </Container>
         <div textAlign="center">
-            <AnimalCardTwo id="recentAnimal" animal={animal}/>
+        <Header>View Our Newest Addition!</Header>
+            <Card>
+                <Header>Animal Name: {animal.name}</Header>
+                <Header>Scientific Name: {animal.scientific_name}</Header>
+                <Image src={animal.image}></Image>
+            </Card>
         </div>
         </Container>
     )
