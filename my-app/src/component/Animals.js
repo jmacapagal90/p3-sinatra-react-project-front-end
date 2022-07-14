@@ -27,7 +27,7 @@ function Animals(){
         .catch((error) => {
         console.error('Error:', error);
         });
-      }, [])
+      }, [refreshAnimals])
 
       function submitNewAnimal(e) {
         e.preventDefault();

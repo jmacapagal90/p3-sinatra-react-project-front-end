@@ -22,7 +22,8 @@ function AnimalCardTwo ({ animal,onExtinction }){
           method: "Delete",
         })
           .then((response) => response.json())
-          .then((data) => onExtinction());
+          .then((data) => console.log(data));
+        onExtinction()
       }
 
 
