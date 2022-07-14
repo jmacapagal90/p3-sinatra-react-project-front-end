@@ -4,9 +4,16 @@ import { Card } from "semantic-ui-react";
 function AnimalCardTwo ({ animal }){
     console.log(animal)
 
-    const renderHabitats = animal.sightings.map((habitat)=> {
+    function onlyUnique(value, index, self) {
+        return self.indexOf(value) === index;
+    }
+    const names = animal.sightings.map((habitat) => habitat.habitat.name)
+    const uniqueNames = names.filter(onlyUnique)
+    console.log(uniqueNames)
+
+    const renderHabitats = uniqueNames.map((name)=> {
         return (
-            <p>{habitat.habitat.name}</p>
+            <p>{name}</p>
             )
          })
 
