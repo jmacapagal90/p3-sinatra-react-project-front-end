@@ -29,7 +29,7 @@ function Home( {animal}){
         </Container>
         <div textAlign="center">
         <Header>View Our Newest Addition!</Header>
-            <Card>
+            <Card class="ui centered card">
                 <Header>Animal Name: {animal.name}</Header>
                 <Header>Scientific Name: {animal.scientific_name}</Header>
                 <Image src={animal.image}></Image>
