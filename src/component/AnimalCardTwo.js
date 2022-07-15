@@ -19,8 +19,6 @@ function AnimalCardTwo ({ animal }){
         fetch(`https://fast-castle-86440.herokuapp.com/animal/${animal.id}`, {
           method: "Delete",
         })
-          .then((response) => response.json())
-          .then((data) => console.log(data))
           window.location.reload()
       }
 
