@@ -16,7 +16,7 @@ function AnimalCardTwo ({ animal }){
          })
 
     function handleExtinction() {
-        fetch(`http://localhost:9292/animal/${animal.id}`, {
+        fetch(`https://fast-castle-86440.herokuapp.com/animal/${animal.id}`, {
           method: "Delete",
         })
           .then((response) => response.json())

@@ -14,7 +14,7 @@ function App() {
   // const { match,path } = useRouteMatch()
   // console.log(match)
     useEffect(() => {
-      fetch('http://localhost:9292/habitats', {
+      fetch('https://fast-castle-86440.herokuapp.com/habitats', {
           method: 'GET',
           headers: {
               'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ function App() {
     }, [])
 
     useEffect(() => {
-      fetch('http://localhost:9292/animals', {
+      fetch('https://fast-castle-86440.herokuapp.com/animals', {
           method: 'GET',
           headers: {
               'Content-Type': 'application/json',
