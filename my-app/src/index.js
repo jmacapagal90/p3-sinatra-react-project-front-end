@@ -6,7 +6,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-document.body.style = 'background: #fff;';
+document.body.style = 'background: #f5ffb1;';
 
 const styleLink = document.createElement("link");
 styleLink.rel = "stylesheet";

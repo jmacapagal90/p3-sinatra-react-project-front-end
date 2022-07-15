@@ -9,12 +9,10 @@ import Home from './component/Home';
 //import Animals from './component/Animals'
 
 function App() {
-  const [ refresh, setRefresh ] = useState(false)
   const [ habitats, setHabitats ] = useState([]);
   const [ animals, setAnimals ] = useState([]);
   // const { match,path } = useRouteMatch()
   // console.log(match)
-
     useEffect(() => {
       fetch('http://localhost:9292/habitats', {
           method: 'GET',
@@ -27,7 +25,7 @@ function App() {
       .catch((error) => {
       console.error('Error:', error);
       });
-    }, [refresh])
+    }, [])
 
     useEffect(() => {
       fetch('http://localhost:9292/animals', {
@@ -41,15 +39,10 @@ function App() {
       .catch((error) => {
       console.error('Error:', error);
       });
-    }, [refresh])
-
-    const homeAnimals = animals[animals.length-1]
+    },[])
 
     function handleNewHabitat(newHabitatObj){
       setHabitats([...habitats,newHabitatObj])
-    }
-    function onRefresh(){
-      setRefresh(!refresh)
     }
 
   return (
@@ -57,22 +50,22 @@ function App() {
       <Header className="App-header" >
         <NavBar/>
       </Header>
-      <Switch>
-      <Route exact path="/">
-        <Home animal={homeAnimals}/>
-      </Route>
-      <Route exact path="/habitats">
-          <HabitatPage setRefresh={onRefresh} habitats={habitats} animals={animals} onHandleNewHabitat={handleNewHabitat} /> 
-      </Route>
-      <Route exact path="/animals">
-          <Animals  />
-      </Route>
-      <Route exact path={`/habitats/:id`}>
-          <HabitatShow habitats={habitats} animals={animals}/>
-      </Route>
+        <Switch>
+          <Route exact path="/">
+              <Home animals={animals}/>
+            </Route>
+            <Route exact path="/habitats">
+                <HabitatPage habitats={habitats} animals={animals} onHandleNewHabitat={handleNewHabitat} /> 
+            </Route>
+            <Route exact path="/animals">
+                <Animals  />
+            </Route>
+            <Route exact path={`/habitats/:id`}>
+                <HabitatShow animals={animals} />
+            </Route>
       </Switch>
     </>
       );
-}
+  }
 
 export default App;

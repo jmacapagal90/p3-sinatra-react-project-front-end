@@ -1,7 +1,7 @@
 import React from "react";
-import { Card } from "semantic-ui-react";
+import { Card,Image,Button,Header } from "semantic-ui-react";
 
-function AnimalCard ({ animal, habitat,setRefresh,setRefreshHabitat }){
+function AnimalCard ({ animal, habitat}){
     console.log(animal)
     function handleSighting() { 
         const sightingData = {
@@ -20,8 +20,6 @@ function AnimalCard ({ animal, habitat,setRefresh,setRefreshHabitat }){
               })
                 .then((response) => response.json())
                 .then((json) => {
-                    setRefresh()
-                    setRefreshHabitat()
                     console.log(json)
                     console.log("also, turn Sighted of the animal to true")})
             
@@ -35,6 +33,7 @@ function AnimalCard ({ animal, habitat,setRefresh,setRefreshHabitat }){
         })
         .then((r) => r.json())
         .then((newSighting) => console.log(newSighting));
+        window.location.reload()
             
     }
 
@@ -43,28 +42,27 @@ function AnimalCard ({ animal, habitat,setRefresh,setRefreshHabitat }){
           method: "Delete",
         })
           .then((response) => response.json())
-          .then((data) => setRefreshHabitat(data));
+          .then((data) => console.log(data))
+          window.location.reload()
       }
 
     return (
         <Card>
-            <h4>{animal.name}</h4>
-            <img src={animal.image} />
-            <p>{animal.scientific_name}</p>
-            <p>Have You Seen This Animal?</p>
-            <p>{animal.sighted ? "Yes" : "No" }</p>
-            <button onClick= {handleSighting}>Add Sighting</button>
-            <p>Is This Animal Extinct?</p>
-            <p>{animal.extinct ? "They gone" : "Still around"}</p>
-            <button onClick= {handleExtinction}>Extinction Button</button>
+                <Card.Content class="header">{animal.name.toUpperCase()}</Card.Content >
+                <Card.Content  class="image">
+                    <img  src={animal.image} alt={animal.name}/>
+                </Card.Content >
+                <Card.Content  class="header">{animal.scientific_name}</Card.Content >
+                <Card.Content  class="header">Have You Seen This Animal?</Card.Content>
+                <Card.Content  class="header">{animal.sighted ? "Yes" : "No" }</Card.Content >
+                    <Button onClick= {handleSighting}>Add Sighting</Button>
+                <Card.Content  class="header">Is This Animal Extinct?</Card.Content >
+                <Card.Content  class="header">{animal.extinct ? "Extinct" : "Not Extinct"}</Card.Content>
+                <Button onClick= {handleExtinction}>Mark Extinct</Button>
         </Card>
 
     )
 }
 
-// t.boolean :sighted
-// t.string :image
-// t.boolean :extinct
-// t.string :scientific_name
 
 export default AnimalCard;

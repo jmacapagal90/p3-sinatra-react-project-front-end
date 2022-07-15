@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import HabitatList from "./HabitatList";
 import HabitatShow from "./HabitatShow";
 import { Route, useRouteMatch } from "react-router-dom";
-import { Form, Button, Input, Label,Container } from "semantic-ui-react"
+import { Header, Form, Button, Input, Container } from "semantic-ui-react"
 
 function HabitatPage({ habitats, animals,onHandleNewHabitat,setRefresh }){
     const match = useRouteMatch()
@@ -29,18 +29,18 @@ function HabitatPage({ habitats, animals,onHandleNewHabitat,setRefresh }){
             });
         }
     return (
-        <Container>
-            <HabitatList habitats={habitats} /> 
+        <Container textAlign="center" >
             <Route path={`${match.url}/:id`}>
                 <HabitatShow setRefresh={setRefresh} habitats={habitats} animals = {animals}/>
             </Route>
             <Form onSubmit={(e)=>{submitNewHabitat(e)}} >
             <Form.Field>
-                <Label for="habitatname">Habitat Name:</Label>
+                <Header for="habitatname">Habitat Name:</Header>
                 <Input placeholder='Habitat Name' onChange={(e)=>setHabitatName(e.target.value)} value={habitatName}/>
             </Form.Field>
             <Button type='submit'>Submit</Button>
         </Form>
+        <HabitatList habitats={habitats} /> 
         </Container>
 )}
 

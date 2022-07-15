@@ -4,11 +4,10 @@ import { useEffect,useState } from "react";
 import AnimalCard from "./AnimalCard";
 import SightForm from "./SightForm";
 
-function HabitatShow({habitats, animals,setRefresh}){
+function HabitatShow({ animals,setRefresh,onExtinction}){
     const [ refreshHabitat, setRefreshHabitat ] = useState(false)
     const [habitatData,setHabitatData] = useState([])
     const { id }  = useParams()
-
 
   useEffect(() => {
     fetch(`http://localhost:9292/habitats/${id}`, {
@@ -30,13 +29,13 @@ function HabitatShow({habitats, animals,setRefresh}){
 
   const renderAnimalCard = habitatData.sightings && habitatData.sightings.map((animal)=> {
     return (
-        <AnimalCard setRefreshHabitat={onRefreshHabitat} setRefresh={setRefresh} habitat={habitatData} key={animal.animal} animal={animal.animal}/>
+        <AnimalCard onExtinction={onExtinction} setRefreshHabitat={onRefreshHabitat} setRefresh={setRefresh} habitat={habitatData} key={animal.animal} animal={animal.animal}/>
         )
      })
 
     return (
         <>
-        <SightForm habitat = {habitatData} animals = {animals}/>
+        <SightForm habitat = {habitatData} animals = {animals} setRefresh={setRefresh}/>
         <div>
             <h1>{habitatData.name}</h1>
             {renderAnimalCard}

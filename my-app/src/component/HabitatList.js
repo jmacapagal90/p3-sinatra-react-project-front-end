@@ -1,16 +1,19 @@
 import React from "react";
+import { List } from "semantic-ui-react"
 import { Link } from "react-router-dom";
 
 function HabitatList({habitats}){
 
     const renderHabitats = habitats.map((habitat) => (
         <li key={habitat.id}>
-          <Link to={`/habitats/${habitat.id}`}>{habitat.name}</Link>
+          <List.Item as="a">
+            <Link to={`/habitats/${habitat.id}`}>{habitat.name}</Link>
+          </List.Item>
         </li>
       ));
 
     return (
-        <ul>{renderHabitats}</ul>
+        <List>{renderHabitats}</List>
     )
 }
 export default HabitatList;

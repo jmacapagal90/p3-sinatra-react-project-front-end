@@ -1,19 +1,17 @@
 import React from "react";
-import { Card } from "semantic-ui-react";
+import { Card,Button } from "semantic-ui-react";
 
-function AnimalCardTwo ({ animal,onExtinction }){
-    console.log(animal)
+function AnimalCardTwo ({ animal }){
 
     function onlyUnique(value, index, self) {
         return self.indexOf(value) === index;
     }
     const names = animal.sightings.map((habitat) => habitat.habitat.name)
     const uniqueNames = names.filter(onlyUnique)
-    console.log(uniqueNames)
 
     const renderHabitats = uniqueNames.map((name)=> {
         return (
-            <p>{name}</p>
+            <Card.Content>{name}</Card.Content>
             )
          })
 
@@ -22,23 +20,24 @@ function AnimalCardTwo ({ animal,onExtinction }){
           method: "Delete",
         })
           .then((response) => response.json())
-          .then((data) => console.log(data));
-        onExtinction()
+          .then((data) => console.log(data))
+          window.location.reload()
       }
 
 
 
     return (
         <Card>
-            <h4>{animal.name}</h4>
-            <img src={animal.image} />
-            <p>{animal.scientific_name}</p>
-            <p>Have You Seen This Animal?</p>
-            <p>{animal.sighted ? "Yes" : "No" }</p>
-            {renderHabitats}
-            <p>Is This Animal Extinct?</p>
-            <p>{animal.extinct ? "They gone" : "Still around"}</p>
-            <button onClick= {handleExtinction}>Extinction Button</button>
+            <Card.Content>{animal.name.toUpperCase()}</Card.Content>
+            <Card.Content><img src={animal.image} alt={animal.name}/></Card.Content>
+
+            <Card.Content>{animal.scientific_name}</Card.Content>
+            <Card.Content>Have You Seen This Animal?</Card.Content>
+            <Card.Content>{animal.sighted ? "Yes" : "No" }</Card.Content>
+            {renderHabitats} 
+            <Card.Content>Is This Animal Extinct?</Card.Content>
+            <Card.Content>{animal.extinct ? "Extinct" : "Mark Extinct"}</Card.Content>
+            <Button onClick= {handleExtinction}>Extinct</Button>
         </Card>
     )
 }
