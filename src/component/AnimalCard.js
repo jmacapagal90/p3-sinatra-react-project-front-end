@@ -9,7 +9,7 @@ function AnimalCard ({ animal, habitat}){
             habitat_id: habitat.id,
             seen: Date()
         }
-            fetch(`http://localhost:9292/animal/${animal.id}`, {
+            fetch(`https://fast-castle-86440.herokuapp.com/animal/${animal.id}`, {
                 method: 'PATCH',
                 headers: {
                     "Content-Type": "application/json",
@@ -23,7 +23,7 @@ function AnimalCard ({ animal, habitat}){
                     console.log(json)
                     console.log("also, turn Sighted of the animal to true")})
             
-        fetch(`http://localhost:9292/sightings/`, {
+        fetch(`https://fast-castle-86440.herokuapp.com/sightings`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -38,7 +38,7 @@ function AnimalCard ({ animal, habitat}){
     }
 
     function handleExtinction() {
-        fetch(`http://localhost:9292/animal/${animal.id}`, {
+        fetch(`https://fast-castle-86440.herokuapp.com/animal/${animal.id}`, {
           method: "Delete",
         })
           .then((response) => response.json())

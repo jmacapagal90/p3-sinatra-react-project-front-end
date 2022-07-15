@@ -10,7 +10,7 @@ function HabitatShow({ animals,setRefresh,onExtinction}){
     const { id }  = useParams()
 
   useEffect(() => {
-    fetch(`http://localhost:9292/habitats/${id}`, {
+    fetch(`https://fast-castle-86440.herokuapp.com/habitats/${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

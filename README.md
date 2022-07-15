@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# ZOO GUIDE
+- Live Demo Here: INSERT NEW LINK [Demo](https://thunderous-mandazi-ff9ffc.netlify.app/#reloaded)
+- Link to Back-end Github Repo: https://github.com/jmacapagal90/p3-sinatra-react-project-back-end
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+* [General Info](#general-information)
+* [Technologies Used](#technologies-used)
+* [Features](#features)
+* [Site](#site)
+* [Setup](#setup)
+* [Room for Improvement](#room-for-improvement)
+* [Team](#team)
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+## General Information
+- Zoo Guide  is a SPA that allows users to search through beers and update tabs with different beer order
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
+- active-record: 6.1 
+- javascript: ES6
+- rake: 13.6
+- react: 18.2
+- ruby: 2.7.4
+- semantic-ui-react: 2.0.1
+- sinatra: 2.1
+- sqlite3: 1.4
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Background 
+We designed an MVP of a Zoo Guide, where a user could browse through habitats and see how many animals were "sighted" in that habitat. The user could also add an animal to a habitat by "sighting" them. The user could also browse through all Animals and view what habitats they currently were sighted. 
 
-### `npm test`
+## User Stories
+As a User, I am able to:
+- View All Animals
+- View All Habitats
+- View All Animals Sighted in each Habitats
+- View All Habitats Where Animal Sighted
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Client Screenshots (TBD)
+### Home Page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Habitats Page
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Animal Page
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Setup
 
-### `npm run eject`
+To setup the app first fork and cd into the app then run:
+- npm install
+- npm start
+- bundle exec rake server
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Dependencies are listed inside:
+- package.json
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Room for Improvement
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- filter by habitat type
+- search by animals and view all habitats
+- search by habitats and view animals
+- sort features
+- improve css styling 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Team
+- [James Macapagal](https://github.com/jmacapagal90)
+- [Joe Putz](https://github.com/JoePutz)
+- [Justin Hobbs](https://github.com/jj-hobbs)

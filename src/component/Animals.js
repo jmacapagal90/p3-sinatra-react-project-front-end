@@ -18,7 +18,7 @@ function Animals(){
     
 
     useEffect(() => {
-        fetch('http://localhost:9292/animals', {
+        fetch('https://fast-castle-86440.herokuapp.com/animals', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ function Animals(){
         e.preventDefault();
         alert("Nice spot! Thanks for adding a new animal!")
         console.log(newAnimalObj)
-        fetch("http://localhost:9292/animals", {
+        fetch("https://fast-castle-86440.herokuapp.com/animals", {
            method: "POST",
            headers: {
               "Content-Type": "application/json",

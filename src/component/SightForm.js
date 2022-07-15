@@ -23,7 +23,7 @@ function SightForm( {habitat, animals,setRefresh} ) {
             seen: Date()
         }
 
-        fetch('http://localhost:9292/sightings/', {
+        fetch('https://fast-castle-86440.herokuapp.com/sightings', {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -33,7 +33,7 @@ function SightForm( {habitat, animals,setRefresh} ) {
             .then((r) => r.json())
             .then((newSighting) => console.log(newSighting));
 
-            fetch(`http://localhost:9292/animal/${animalId}`, {
+            fetch(`https://fast-castle-86440.herokuapp.com/animal/${animalId}`, {
                 method: 'PATCH',
                 headers: {
                     "Content-Type": "application/json",
