@@ -1,5 +1,5 @@
 import React from "react";
-import { Card,Image,Button,Header } from "semantic-ui-react";
+import { Card,Image,Button,Header,Icon } from "semantic-ui-react";
 
 function AnimalCard ({ animal, habitat}){
     console.log(animal)
@@ -58,7 +58,13 @@ function AnimalCard ({ animal, habitat}){
                     <Button onClick= {handleSighting}>Add Sighting</Button>
                 <Card.Content  class="header">Is This Animal Extinct?</Card.Content >
                 <Card.Content  class="header">{animal.extinct ? "Extinct" : "Not Extinct"}</Card.Content>
-                <Button onClick= {handleExtinction}>Mark Extinct</Button>
+                <Button onClick= {handleExtinction} animated>
+                <Button.Content visible>Extinct?</Button.Content>
+                <Button.Content hidden>
+                    Mark Extinct
+                    <Icon name='close' />
+                </Button.Content>
+            </Button>
         </Card>
 
     )

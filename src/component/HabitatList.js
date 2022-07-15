@@ -6,7 +6,7 @@ function HabitatList({habitats}){
 
     const renderHabitats = habitats.map((habitat) => (
         <li key={habitat.id}>
-          <List.Item as="a">
+          <List.Item as="a" id="habitatList">
             <Link to={`/habitats/${habitat.id}`}>{habitat.name}</Link>
           </List.Item>
         </li>

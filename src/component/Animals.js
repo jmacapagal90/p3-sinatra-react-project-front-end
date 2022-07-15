@@ -7,12 +7,15 @@ function Animals(){
     const [ animal, setAnimal ] = useState([]);
     const [ animalName, setAnimalName ] = useState("");
     const [ animalImage, setAnimalImage ] = useState("");
+    const [ sciName, setSciName ] = useState("")
     const newAnimalObj = {
         name: animalName,
-        image: animalImage,
         sighted: false,
-        extinct: false
+        image: animalImage,
+        extinct: false,
+        scientific_name: sciName
     }
+    
 
     useEffect(() => {
         fetch('http://localhost:9292/animals', {
@@ -31,6 +34,7 @@ function Animals(){
       function submitNewAnimal(e) {
         e.preventDefault();
         alert("Nice spot! Thanks for adding a new animal!")
+        console.log(newAnimalObj)
         fetch("http://localhost:9292/animals", {
            method: "POST",
            headers: {
@@ -38,31 +42,33 @@ function Animals(){
            },
            body: JSON.stringify(newAnimalObj),
         })
-           .then((r) => r.json())
-           .then((animal_data) => setAnimal(...animal_data, newAnimalObj))
-           .then(() => {
-              setAnimalName("")
-              setAnimalImage("")
-           })
+        window.location.reload()
      }
 
+     
 
 
 
     return (
-        <Container>
-            <Form onSubmit={(e)=>{submitNewAnimal(e)}} >
+        <Container textAlign="center">
+            <Form onSubmit={(e)=>{submitNewAnimal(e)}}>
             <Form.Field>
                 <Label for="animalform">Animal Name:</Label>
                 <Input placeholder='Animal Name' onChange={(e)=>setAnimalName(e.target.value)} value={animalName}/>
             </Form.Field>
             <Form.Field>
+                <Label for="animalform">Scientific Name:</Label>
+                <Input placeholder='Scientific Name' onChange={(e)=>setSciName(e.target.value)} value={sciName}/>
+            </Form.Field>
+            <Form.Field>
                 <Label for="animalform">Image: </Label>
-                <Input placeholder='Image' onChange={(e)=>setAnimalImage(e.target.value)} value={animalImage}/>
+                <Input placeholder='Image URL' onChange={(e)=>setAnimalImage(e.target.value)} value={animalImage}/>
             </Form.Field>
             <Button type='submit'>Submit</Button>
-        </Form>
-        <Card.Group >
+            </Form>
+        <Container >
+        <br></br>
+        <Card.Group id="animal_card_two">
             {animal && 
             animal.map((animal) => {
                 return (
@@ -70,6 +76,7 @@ function Animals(){
                 )
             })}
         </Card.Group>
+        </Container>
         </Container>
     )
 }

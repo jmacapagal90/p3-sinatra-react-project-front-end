@@ -1,5 +1,5 @@
 import React from "react";
-import { Card,Button } from "semantic-ui-react";
+import { Card,Button,Icon } from "semantic-ui-react";
 
 function AnimalCardTwo ({ animal }){
 
@@ -37,7 +37,13 @@ function AnimalCardTwo ({ animal }){
             {renderHabitats} 
             <Card.Content>Is This Animal Extinct?</Card.Content>
             <Card.Content>{animal.extinct ? "Extinct" : "Mark Extinct"}</Card.Content>
-            <Button onClick= {handleExtinction}>Extinct</Button>
+            <Button onClick= {handleExtinction} animated>
+                <Button.Content visible>Extinct?</Button.Content>
+                <Button.Content hidden>
+                    Mark Extinct
+                    <Icon name='close' />
+                </Button.Content>
+            </Button>
         </Card>
     )
 }
