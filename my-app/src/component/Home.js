@@ -1,44 +1,43 @@
 import React from "react";
-import { Header, Container,Card,Image } from "semantic-ui-react";
+import { Header, Container,Card,Image,Menu } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
-import AnimalCardTwo from "./AnimalCardTwo";
 
-function Home( {animal}){
+function Home({ animals }){
+    const homeAnimal = animals[animals.length -1]
 
+
+    if(!window.location.hash.includes("#reloaded")) {
+        window.location.href += "#reloaded";
+        window.location.reload()
+    }
     
     return (
         <Container textAlign="center">
         <Header class="ui sizer vertical segment">
             <h1 class="ui huge header ">Welcome to the Zoo!</h1>
-            <h3 class="ui small">Select a Habitat to View All The Animals</h3>      
-            <h3 class="ui small">Or View the Animals and see their Habitats</h3>     
+            <h3 class="ui small">Browse by Habitat or Animals</h3>   
         </Header>
-        <Container>
-            <div  class="ui two column grid">
-                <div textAlign="center" class="column">
+            <Menu  fluid widths={2} class="ui two column grid">
+                <Menu.Item textAlign="center" class="column">
                     <h2 class="medium">
                         <Link to="/animals">Animals</Link>
                     </h2>
-                </div>
-                <div textAlign="center" class="column">
+                </Menu.Item>
+                <Menu.Item textAlign="center" class="column">
                     <h2 class="medium">
                         <Link to="/habitats">Habitats</Link>
                     </h2>
-                </div>
-            </div>
-        </Container>
-        <br></br>
-        <br></br>
-        <div textAlign="center">
-        <Header>View Our Newest Addition!</Header>
-            <div className="flexbox-container" >
-                <Card class="ui centered card">
-                    <Header>Animal Name: {animal.name}</Header>
-                    <Header>Scientific Name: {animal.scientific_name}</Header>
-                    <Image src={animal.image}></Image>
-                </Card>
-            </div>
-        </div>
+                </Menu.Item>
+            </Menu>
+        {homeAnimal ? 
+        <Card.Group itemsPerRow={1}>
+        <Card>
+            <Header class="ui huge header">New Addition:</Header>
+            <Card.Content>{homeAnimal.name.toUpperCase()}</Card.Content>
+            <Image src={homeAnimal.image} alt={homeAnimal.name}/>
+            <Card.Content>Scientific Name: {homeAnimal.scientific_name}</Card.Content>
+        </Card>
+        </Card.Group>: null}
         </Container>
     )
 }

@@ -1,30 +1,15 @@
 import React from "react";
-import { Header, Button, Icon }  from 'semantic-ui-react';
+import { Menu, MenuItem,Icon }  from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 
 function NavBar(){
  
     return (
-        <Header class="navbar" >
-            <Button icon class="ui button">
-                <NavLink exact to="/">
-                        <span></span>
-                        <Icon name='home' />
-                </NavLink>
-            </Button> 
-            <Button icon>
-                <NavLink exact to="/animals">
-                    <span></span>
-                    <Icon name='paw' />
-                </NavLink>
-            </Button>
-            <Button icon>
-                <NavLink exact to="/habitats">
-                    <span></span>
-                    <Icon name='world' />
-                </NavLink>
-            </Button>   
-        </Header>
+        <Menu fluid widths={3} size='large'>
+            <MenuItem as={NavLink} exact to="/" className="button" activeStyle={{color: "green"}}> <Icon name='home' /></MenuItem>
+            <MenuItem as={NavLink} exact to="/habitats" className="button" activeStyle={{color: "green"}}><Icon name='world' /></MenuItem>
+            <MenuItem as={NavLink} exact to="/animals" className="button" activeStyle={{color: "green"}}><Icon name='paw' /></MenuItem>
+        </Menu>
     )
 }
 

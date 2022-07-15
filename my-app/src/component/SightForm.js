@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Form, Button, Input, Label, Container,Dropdown } from "semantic-ui-react";
 
-function SightForm( {habitat, animals} ) {
+function SightForm( {habitat, animals,setRefresh} ) {
     const [ animalName, setAnimalName] = useState('')
     const animalsDisplay = (animals ? animals.map((animal)=>{
         return {
@@ -46,6 +46,7 @@ function SightForm( {habitat, animals} ) {
                 .then((json) => {
                     console.log(json)
                     console.log("also, turn Sighted of the animal to true")})
+                    window.location.reload()
         }
         
 

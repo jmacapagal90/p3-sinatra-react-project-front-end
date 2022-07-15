@@ -5,7 +5,6 @@ import AnimalCardTwo from './AnimalCardTwo';
 
 function Animals(){
     const [ animal, setAnimal ] = useState([]);
-    const [ refreshAnimals, setRefreshAnimals ] = useState(false)
     const [ animalName, setAnimalName ] = useState("");
     const [ animalImage, setAnimalImage ] = useState("");
     const newAnimalObj = {
@@ -27,10 +26,11 @@ function Animals(){
         .catch((error) => {
         console.error('Error:', error);
         });
-      }, [refreshAnimals])
+      }, [])
 
       function submitNewAnimal(e) {
         e.preventDefault();
+        alert("Nice spot! Thanks for adding a new animal!")
         fetch("http://localhost:9292/animals", {
            method: "POST",
            headers: {
@@ -45,9 +45,7 @@ function Animals(){
               setAnimalImage("")
            })
      }
-     function onExtinction(){
-        setRefreshAnimals(!refreshAnimals)
-     }
+
 
 
 
@@ -64,11 +62,11 @@ function Animals(){
             </Form.Field>
             <Button type='submit'>Submit</Button>
         </Form>
-        <Card.Group itemsPerRow={4}>
+        <Card.Group >
             {animal && 
             animal.map((animal) => {
                 return (
-                    <AnimalCardTwo onExtinction={onExtinction} key={animal.id} animal={animal}/>
+                    <AnimalCardTwo key={animal.id} animal={animal}/>
                 )
             })}
         </Card.Group>
