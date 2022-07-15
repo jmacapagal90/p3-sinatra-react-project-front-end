@@ -69,3 +69,29 @@ code {
   max-height: 30px;
   border-radius: 10px;
 }
+
+.button.ui.animated.button {
+  background: rgb(255, 1, 1);
+}
+
+.menu.ui.menu{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+#animal_card_two {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+#habitatList {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  font-size: x-large;
+}
